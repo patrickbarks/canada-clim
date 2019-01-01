@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="twitter:image" content="/static/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans">
+</head>
+
+<body>
+
+<div class="div-head">
+  <!-- Trends in mean annual temperature at Canadian climate stations -->
+  Long-term trends in mean annual temperature at 339 Canadian climate stations
+</div>
+
+<div class="div-plot">
+  <div class="div-select-prov">
+    Province: <select id="province" onchange="cities_update()"></select>
+  </div>
+  <div class="div-select-station">
+    Station: <select id="city" onchange="plot_update()"></select>
+  </div>
+  <div class="div-trend">
+    Trend: <span id="trend-val"></span>&deg;C per decade
+  </div>
+</div>
+
+
+<div class="div-main">
+
+<div style="padding-bottom:10px;">
+  <svg width="45", height="25">
+    <line x1="5" y1="20" x2="40" y2="20" class="gap-line" />
+  </svg>
+  <span style="font-size:90%;">dashed lines indicate one or more years with missing or incomplete temperature data</span>
+</div>
+
+<p>
+    <b>Data and Methods:</b>
+    Data are mean annual <a
+    href="https://www.canada.ca/en/environment-climate-change/services/climate-change/science-research-data/climate-trends-variability/adjusted-homogenized-canadian-data/surface-air-temperature-access.html">homegenized
+    surface air temperatures</a> from Environment and Climate Change Canada (see
+    file <i>Monthly mean of daily mean temperature</i>). Trend line based on
+    least squares regression. Trend is <i>not</i> a projection of future change.
+    Note that the vertical axis always maintains a range of 8.5&deg;C, for the
+    sake of comparability among stations.
+</p>
+
+</div>
+
+<br>
+
+<footer class="foot">
+    <!-- Copyright -->
+    <div>Created by
+        <a href="https://github.com/patrickbarks"> Patrick Barks</a> |
+        <i class="fab fa-twitter" style="font-size:14px"></i>
+        <a href="https://twitter.com/pmbarks"> @pmbarks</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 70, right: 20, bottom: 35, left: 54};
+var width = 650 - margin.left - margin.right;
+// var width = parseInt(d3.select('body').style('width'), 10) - margin.left - margin.right;
+var height = 350 - margin.top - margin.bottom;
+
+
+// set the ranges
+var x = d3.scaleLinear().range([0, width]);
+var y = d3.scaleLinear().range([0, height]);
+
+// define the line
+var valueline = d3.line()
+    .defined(function (d) { return d.annual !== null; })
+    .x(function(d) { return x(d.year); })
+    .y(function(d) { return y(d.annual); });
+
+var legendline = d3.line()
+    .x(function(d) { return d[0]; })
+    .y(function(d) { return d[1]; });
+
+
+// append the svg obgect to the body of the page
+// appends a 'group' element to 'svg'
+// moves the 'group' element to the top left margin
+var svg_l = d3.select(".div-plot")
+  .append("svg")
+    .attr("class", "svg-left")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+var stn_dat, clim_dat, fit_dat;
+var province, prov, city;
+
+d3.queue()
+  .defer(d3.csv, "/dat_proc/station_data_clean.csv", parse_csv_stn)
+  .defer(d3.csv, "/dat_proc/clim_data_clean.csv", parse_csv_clim)
+  .defer(d3.csv, "/dat_proc/fit_lines.csv", parse_csv_clim)
+  .await(analyze);
+
+
+var prov_l = {
+  "BRITISH COLUMBIA": "BC",
+  "ALBERTA": "AB",
+  "SASKATCHEWAN": "SK",
+  "MANITOBA": "MB",
+  "ONTARIO": "ON",
+  "QUEBEC": "QC",
+  "NEWFOUNDLAND": "NL",
+  "NEW BRUNSWICK": "NB",
+  "NOVA SCOTIA": "NS",
+  "PRINCE EDWARD ISLAND": "PE",
+  "YUKON": "YT",
+  "NORTHWEST TERRITORIES": "NT",
+  "NUNAVUT": "NU"
+};
+
+function analyze(error, stn_data, clim_data, fit_data) {
+  if(error) { console.log(error); }
+
+  stn_dat = stn_data;
+  clim_dat = clim_data;
+  fit_dat = fit_data;
+
+  d3.select("#province")
+    .selectAll("option")
+    .data(Object.keys(prov_l))
+    .enter().append("option")
+      .text(function(d) {return d;});
+
+  province = document.getElementById("province").value = "ONTARIO";
+  prov = prov_l[province];
+
+  d3.select("#city")
+    .selectAll("option")
+    .data(stn_data.filter(function(d) {return d.prov == prov;}))
+    .enter().append("option")
+      .text(function(d) {return d.station;});
+
+  // filter data to city of interest
+  city = document.getElementById("city").value = "TORONTO";
+  clim_data = clim_data.filter(function(d) {return d.station == city;});
+  fit_data = fit_data.filter(function(d) {return d.station == city;});
+
+  // Scale the range of the data
+  x.domain([1877, 2023]);
+  update_y_axis(clim_data);
+
+  // add the x-axis
+  svg_l.append("g")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x)
+        .ticks(20)
+        .tickSize(-height)
+        .tickPadding(7)
+        .tickFormat(d3.format("d")));
+
+  // add the y-axis
+  svg_l.append("g")
+    .attr("class", "axis axis--y")
+    .call(d3.axisLeft(y)
+        .ticks(10)
+        .tickSize(-width)
+        .tickPadding(7)
+        .tickFormat(formatCust));
+        // .tickFormat(function(d) {
+        //   return this.parentNode.nextSibling ?
+        //     d3.format("d")(d) :
+        //     d3.format("d")(d) + " \u00B0C";}));
+
+  // add temperature line
+  svg_l.append("path")
+      .datum(clim_data)
+      .attr("class", "line")
+      .attr("d", valueline)
+      .style("opacity", 0)
+      .transition()
+      .duration(300)
+      .ease(d3.easeCubic)
+      .style("opacity", 1);
+
+  // add gap lines
+  svg_l.append("path")
+      .datum(clim_data.filter(function(d) { return d.annual !== null; }))
+      .attr("class", "gap-line")
+      .attr("d", valueline)
+      .style("opacity", 0)
+      .transition()
+      .duration(300)
+      .ease(d3.easeCubic)
+      .style("opacity", 1);
+
+
+  var trend_val = stn_dat.filter(function(d) {return d.station == city;})[0].trend_annual;
+  document.getElementById("trend-val").innerHTML = d3.format("+.2f")(trend_val);
+
+  // add fit line
+  svg_l.append("path")
+      .datum(fit_data)
+      .attr("class", "fit-line")
+      .attr("d", valueline);
+};
+
+
+// move selection to front
+d3.selection.prototype.moveToFront = function() {
+   return this.each(function() {
+     this.parentNode.appendChild(this);
+   });
+};
+
+
+// update y-axis
+function update_y_axis(data) {
+  var y_min = d3.min(data, function(d) { return d.annual; });
+  var y_max = d3.max(data, function(d) { return d.annual; });
+
+  var diff = y_max - y_min;
+  var y_add = (8.5 - diff) / 2;
+
+  y_min -= y_add;
+  y_max += y_add;
+
+  y.domain([y_max, y_min]);
+};
+
+// update plot when city changes
+function plot_update() {
+  city = document.getElementById("city").value;
+  province = document.getElementById("province").value;
+  prov = prov_l[province];
+
+
+  var clim_dat_sub = clim_dat.filter(function(d) {
+    return d.station == city && d.prov == prov;
+  });
+
+  var fit_dat_sub = fit_dat.filter(function(d) {
+    return d.station == city && d.prov == prov;
+  });
+
+  update_y_axis(clim_dat_sub);
+
+  // update y-axis
+  d3.select('.axis--y')
+     .transition()
+     .call(d3.axisLeft(y)
+         .ticks(10)
+         .tickSize(-width)
+         .tickPadding(7)
+         .tickFormat(formatCust));
+
+  svg_l.select(".line")
+    .datum(clim_dat_sub)
+    .attr("d", valueline);
+
+  svg_l.select(".gap-line")
+      .datum(clim_dat_sub.filter(function(d) { return d.annual !== null; }))
+      .attr("d", valueline);
+
+  svg_l.select(".fit-line")
+    .datum(fit_dat_sub)
+    .attr("d", valueline);
+
+  var trend_val = stn_dat.filter(function(d) {return d.station == city;})[0].trend_annual;
+  document.getElementById("trend-val").innerHTML = d3.format("+.2f")(trend_val);
+};
+
+
+// update list of cities when prov changes
+function cities_update() {
+  province = document.getElementById("province").value;
+  prov = prov_l[province];
+
+  var city_sel = d3.select("#city")
+    .selectAll("option")
+    .data(stn_dat.filter(function(d) {return d.prov == prov;}));
+
+  city_sel.exit().remove();
+
+  city_sel.enter().append("option")
+  .merge(city_sel)
+   .text(function(d) {return d.station;});
+
+  plot_update();
+};
+
+
+// fn to parse climate data
+function parse_csv_clim(d) {
+  return {
+    station: d.station,
+    prov: d.prov,
+    year: +d.year,
+    annual: isNaN(d.annual) ? null : +d.annual
+  };
+};
+
+// fn to parse station data
+function parse_csv_stn(d) {
+  return {
+    station: d.station,
+    prov: d.prov,
+    trend_annual: +d.trend_annual,
+    r2_annual: +d.r2_annual
+  };
+};
+
+function formatCust(d, i) {
+  return i == 0 ? d3.format("d")(d) + " \u00B0C" : d3.format("d")(d);
+};
+
+</script>
+</body>
+</html>

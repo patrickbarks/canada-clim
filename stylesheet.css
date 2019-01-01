@@ -1,0 +1,131 @@
+body {
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+.axis {
+  font-size: 14px;
+}
+
+.axis--y .domain,
+.axis .tick:nth-child(2n - 1) text {
+  display: none;
+}
+
+.axis--y-r .domain,
+.axis .tick:nth-child(2n - 1) text {
+  display: none;
+}
+
+.axis--x .domain {
+  stroke: none;
+}
+
+.axis--x .tick line {
+  stroke: #bfbfbf;
+  opacity: 0.8;
+}
+
+.axis--y .tick line {
+  stroke: #bfbfbf;
+  opacity: 0.8;
+}
+
+.axis--y-r .tick line {
+  stroke: none;
+}
+
+.axis .tick:nth-child(2n - 1) line {
+  stroke: none;
+}
+
+path {
+  fill: none;
+  stroke: #0868ac;
+  /* stroke: #2b8cbe; */
+  stroke-width: 3px;
+}
+
+.gap-line {
+  fill: none;
+  stroke: #0868ac;
+  /* stroke: #2b8cbe; */
+  stroke-width: 2.5px;
+  stroke-dasharray: 5;
+}
+
+circle {
+  fill: none;
+  stroke: black;
+  stroke-width: 1px;
+  opacity: 0.8;
+}
+
+.fit-line {
+  stroke: #505050;
+  /* stroke: none; */
+  stroke-width: 2.2px;
+  opacity: 0.7;
+}
+
+div {
+  /* border: solid; */
+  /* border-width: 0.5px; */
+  position: relative;
+}
+
+.div-main {
+  margin: auto;
+  width: 650px;
+  min-width: 450px;
+}
+
+.div-head {
+  font-family: 'Merriweather Sans', sans-serif;
+  margin: auto;
+  max-width: 650px;
+  min-width: 450px;
+  font-size: 20.5px;
+  font-weight: bold;
+  line-height: 1.2;
+  padding-top: 15px;
+  padding-bottom: 7px;
+}
+
+.div-plot {
+  background-color: #e6e6e6;
+  margin: auto;
+  max-width: 650px;
+  min-width: 450px;
+}
+
+.div-select-prov {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+}
+
+.div-select-station {
+  position: absolute;
+  top: 35px;
+  left: 12px;
+}
+
+.div-trend {
+  position: absolute;
+  top: 35px;
+  right: 20px;
+  text-align: right;
+}
+
+.foot {
+  margin: auto;
+  width: 50%;
+  max-width: 650px;
+  min-width: 450px;
+  text-align: center;
+}
+
+#trend-val {
+  font-weight: bold;
+}
