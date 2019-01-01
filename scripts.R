@@ -49,7 +49,7 @@ clim_out <- clim_full %>%
   select(station, prov, everything())
 
 # write to file
-write.csv(clim_out, "dat_proc/clim_data_clean.csv", row.names = FALSE)
+write.csv(clim_out, "dat_clim.csv", row.names = FALSE)
 
 
 
@@ -100,7 +100,7 @@ stn_dat_out <- stn_dat %>%
   left_join(clim_trends) %>% 
   select(-stn_file, -beg_yr, -end_yr, -stnid)
 
-write.csv(stn_dat_out, "dat_proc/station_data_clean.csv", row.names = FALSE)
+write.csv(stn_dat_out, "dat_station.csv", row.names = FALSE)
 
 
 
@@ -132,7 +132,7 @@ fit_line_out <- clim_out %>%
   ungroup()
 
 # write to file
-write.csv(fit_line_out, "dat_proc/fit_lines.csv", row.names = FALSE)
+write.csv(fit_line_out, "dat_fit.csv", row.names = FALSE)
 
 
 
