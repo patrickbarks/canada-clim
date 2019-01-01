@@ -107,9 +107,9 @@ var stn_dat, clim_dat, fit_dat;
 var province, prov, city;
 
 d3.queue()
-  .defer(d3.csv, "/dat_proc/station_data_clean.csv", parse_csv_stn)
-  .defer(d3.csv, "/dat_proc/clim_data_clean.csv", parse_csv_clim)
-  .defer(d3.csv, "/dat_proc/fit_lines.csv", parse_csv_clim)
+  .defer(d3.csv, "/assets/dat_proc/station_data_clean.csv", parse_csv_stn)
+  .defer(d3.csv, "/assets/dat_proc/clim_data_clean.csv", parse_csv_clim)
+  .defer(d3.csv, "/assets/dat_proc/fit_lines.csv", parse_csv_clim)
   .await(analyze);
 
 
