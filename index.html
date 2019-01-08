@@ -6,6 +6,7 @@
   <meta name="twitter:image" content="/static/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script> -->
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -42,14 +43,11 @@
 </div>
 
 <p>
-    <b>Data and Methods:</b>
     Data are mean annual <a
     href="https://www.canada.ca/en/environment-climate-change/services/climate-change/science-research-data/climate-trends-variability/adjusted-homogenized-canadian-data/surface-air-temperature-access.html">homegenized
     surface air temperatures</a> from Environment and Climate Change Canada (see
     file <i>Monthly mean of daily mean temperature</i>). Trend line based on
     least squares regression. Trend is <i>not</i> a projection of future change.
-    Note that the vertical axis always maintains a range of 8.5&deg;C, for the
-    sake of comparability among stations.
 </p>
 
 </div>
@@ -71,10 +69,9 @@
 
 // set the dimensions and margins of the graph
 var margin = {top: 70, right: 20, bottom: 35, left: 54};
-// var width = 650 - margin.left - margin.right;
-var width = parseInt(d3.select('.div-plot').style('width'), 10) - margin.left - margin.right;
-var height = 350 - margin.top - margin.bottom;
 
+var width = parseInt(d3.select('.div-plot').style('width'), 10) - margin.left - margin.right;
+var height = width * 9 / 16 - margin.top - margin.bottom;
 
 // set the ranges
 var x = d3.scaleLinear().range([0, width]);
@@ -90,18 +87,17 @@ var legendline = d3.line()
     .x(function(d) { return d[0]; })
     .y(function(d) { return d[1]; });
 
-
 // append the svg obgect to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-var svg_l = d3.select(".div-plot")
+var svg = d3.select(".div-plot")
   .append("svg")
     .attr("class", "svg-left")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+         "translate(" + margin.left + "," + margin.top + ")");
 
 var stn_dat, clim_dat, fit_dat;
 var province, prov, city;
@@ -111,6 +107,27 @@ d3.queue()
   .defer(d3.csv, "dat_clim.csv", parse_csv_clim)
   .defer(d3.csv, "dat_fit.csv", parse_csv_clim)
   .await(analyze);
+
+// update on window resize
+var updateLayout = debounce(function(e) {
+
+  width = parseInt(d3.select('.div-plot').style('width'), 10) - margin.left - margin.right;
+  height = width * 9 / 16 - margin.top - margin.bottom;
+
+  d3.select(".svg-left").attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom);
+
+  x.range([0, width]);
+  y.range([0, height]);
+
+  valueline.x(function(d) { return x(d.year); })
+      .y(function(d) { return y(d.annual); });
+
+  plot_update();
+
+}, 50);
+
+window.addEventListener("resize", updateLayout, false);
 
 
 var prov_l = {
@@ -161,7 +178,7 @@ function analyze(error, stn_data, clim_data, fit_data) {
   update_y_axis(clim_data);
 
   // add the x-axis
-  svg_l.append("g")
+  svg.append("g")
     .attr("class", "axis axis--x")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
@@ -171,20 +188,16 @@ function analyze(error, stn_data, clim_data, fit_data) {
         .tickFormat(d3.format("d")));
 
   // add the y-axis
-  svg_l.append("g")
+  svg.append("g")
     .attr("class", "axis axis--y")
     .call(d3.axisLeft(y)
         .ticks(10)
         .tickSize(-width)
         .tickPadding(7)
         .tickFormat(formatCust));
-        // .tickFormat(function(d) {
-        //   return this.parentNode.nextSibling ?
-        //     d3.format("d")(d) :
-        //     d3.format("d")(d) + " \u00B0C";}));
 
   // add temperature line
-  svg_l.append("path")
+  svg.append("path")
       .datum(clim_data)
       .attr("class", "line")
       .attr("d", valueline)
@@ -195,7 +208,7 @@ function analyze(error, stn_data, clim_data, fit_data) {
       .style("opacity", 1);
 
   // add gap lines
-  svg_l.append("path")
+  svg.append("path")
       .datum(clim_data.filter(function(d) { return d.annual !== null; }))
       .attr("class", "gap-line")
       .attr("d", valueline)
@@ -210,7 +223,7 @@ function analyze(error, stn_data, clim_data, fit_data) {
   document.getElementById("trend-val").innerHTML = d3.format("+.2f")(trend_val);
 
   // add fit line
-  svg_l.append("path")
+  svg.append("path")
       .datum(fit_data)
       .attr("class", "fit-line")
       .attr("d", valueline);
@@ -265,15 +278,25 @@ function plot_update() {
          .tickPadding(7)
          .tickFormat(formatCust));
 
-  svg_l.select(".line")
+   // update x-axis
+   d3.select('.axis--x')
+     .attr("transform", "translate(0," + height + ")")
+      .transition()
+      .call(d3.axisBottom(x)
+          .ticks(20)
+          .tickSize(-height)
+          .tickPadding(7)
+          .tickFormat(d3.format("d")));
+
+  svg.select(".line")
     .datum(clim_dat_sub)
     .attr("d", valueline);
 
-  svg_l.select(".gap-line")
+  svg.select(".gap-line")
       .datum(clim_dat_sub.filter(function(d) { return d.annual !== null; }))
       .attr("d", valueline);
 
-  svg_l.select(".fit-line")
+  svg.select(".fit-line")
     .datum(fit_dat_sub)
     .attr("d", valueline);
 
@@ -321,8 +344,25 @@ function parse_csv_stn(d) {
   };
 };
 
+// format y-axes
 function formatCust(d, i) {
   return i == 0 ? d3.format("d")(d) + " \u00B0C" : d3.format("d")(d);
+};
+
+// debounce (from underscore.js, https://underscorejs.org/)
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
 };
 
 </script>

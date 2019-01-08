@@ -42,14 +42,12 @@ body {
 path {
   fill: none;
   stroke: #0868ac;
-  /* stroke: #2b8cbe; */
   stroke-width: 3px;
 }
 
 .gap-line {
   fill: none;
   stroke: #0868ac;
-  /* stroke: #2b8cbe; */
   stroke-width: 2.5px;
   stroke-dasharray: 5;
 }
@@ -63,7 +61,6 @@ circle {
 
 .fit-line {
   stroke: #505050;
-  /* stroke: none; */
   stroke-width: 2.2px;
   opacity: 0.7;
 }
@@ -76,15 +73,15 @@ div {
 
 .div-main {
   margin: auto;
-  width: 650px;
-  min-width: 650px;
+  max-width: 750px;
+  min-width: 550px;
 }
 
 .div-head {
   font-family: 'Merriweather Sans', sans-serif;
   margin: auto;
-  max-width: 650px;
-  min-width: 450px;
+  max-width: 750px;
+  min-width: 550px;
   font-size: 20.5px;
   font-weight: bold;
   line-height: 1.2;
@@ -95,8 +92,15 @@ div {
 .div-plot {
   background-color: #e6e6e6;
   margin: auto;
-  max-width: 650px;
-  min-width: 450px;
+  max-width: 750px;
+  min-width: 550px;
+}
+
+.foot {
+  margin: auto;
+  max-width: 750px;
+  min-width: 550px;
+  text-align: center;
 }
 
 .div-select-prov {
@@ -116,14 +120,6 @@ div {
   top: 35px;
   right: 20px;
   text-align: right;
-}
-
-.foot {
-  margin: auto;
-  width: 50%;
-  max-width: 650px;
-  min-width: 450px;
-  text-align: center;
 }
 
 #trend-val {
