@@ -1,4 +1,10 @@
 
+
+
+
+
+
+
 ### preliminaries
 library(tidyverse)
 library(lubridate)
@@ -38,12 +44,7 @@ clim_out <- clim_full %>%
   as_tibble() %>% 
   filter(year >= 1880) %>% 
   mutate(annual = ifelse(annual < -1000, NA, annual)) %>%  # NA code is -9999
-  mutate(winter = ifelse(winter < -1000, NA, winter)) %>% 
-  mutate(spring = ifelse(spring < -1000, NA, spring)) %>% 
-  mutate(summer = ifelse(summer < -1000, NA, summer)) %>% 
-  mutate(autumn = ifelse(autumn < -1000, NA, autumn)) %>% 
-  select(stnid, year, annual, flag_annual, winter, flag_winter, spring, flag_spring,
-         summer, flag_summer, autumn, flag_autumn) %>% 
+  select(stnid, year, annual) %>% 
   left_join(stn_dat, by = "stnid") %>% 
   select(-stnid, -stn_file, -beg_yr, -end_yr) %>% 
   select(station, prov, everything())
@@ -75,25 +76,24 @@ clim_out %>%
 ### get linear trends (slope and R^2)
 GetTrend <- function(dat) {
   trend_annual <- coef(lm(annual ~ year, dat))[2] * 10
-  trend_winter <- coef(lm(winter ~ year, dat))[2] * 10
-  trend_spring <- coef(lm(spring ~ year, dat))[2] * 10
-  trend_summer <- coef(lm(summer ~ year, dat))[2] * 10
-  trend_autumn <- coef(lm(autumn ~ year, dat))[2] * 10
-  r2_annual <- cor(dat$year, dat$annual, use = "complete.obs")^2
-  r2_winter <- cor(dat$year, dat$winter, use = "complete.obs")^2
-  r2_spring <- cor(dat$year, dat$spring, use = "complete.obs")^2
-  r2_summer <- cor(dat$year, dat$summer, use = "complete.obs")^2
-  r2_autumn <- cor(dat$year, dat$autumn, use = "complete.obs")^2
-  return(data.frame(trend_annual, trend_winter, trend_spring, trend_summer,
-                    trend_autumn, r2_annual, r2_winter, r2_spring, r2_summer,
-                    r2_autumn))
+  # trend_winter <- coef(lm(winter ~ year, dat))[2] * 10
+  # trend_spring <- coef(lm(spring ~ year, dat))[2] * 10
+  # trend_summer <- coef(lm(summer ~ year, dat))[2] * 10
+  # trend_autumn <- coef(lm(autumn ~ year, dat))[2] * 10
+  # r2_annual <- cor(dat$year, dat$annual, use = "complete.obs")^2
+  # r2_winter <- cor(dat$year, dat$winter, use = "complete.obs")^2
+  # r2_spring <- cor(dat$year, dat$spring, use = "complete.obs")^2
+  # r2_summer <- cor(dat$year, dat$summer, use = "complete.obs")^2
+  # r2_autumn <- cor(dat$year, dat$autumn, use = "complete.obs")^2
+  return(data.frame(trend_annual))
 }
 
 clim_trends <- clim_out %>% 
   group_by(station, prov) %>% 
   do(GetTrend(.)) %>% 
   ungroup() %>% 
-  arrange(prov)
+  arrange(prov) %>% 
+  mutate(trend_annual = round(trend_annual, 5))
 
 # write all station-level data to file
 stn_dat_out <- stn_dat %>% 
@@ -106,30 +106,30 @@ write.csv(stn_dat_out, "dat_station.csv", row.names = FALSE)
 
 ### get trend line
 get_fit_line <- function(dat) {
-  
   mod <- lm(annual ~ year, dat)
   xpred <- range(dat$year[!is.na(dat$annual)]) + c(-2, 2)
   annual <- as.numeric(predict(mod, newdata = data.frame(year = xpred)))
   
-  mod <- lm(winter ~ year, dat)
-  winter <- as.numeric(predict(mod, newdata = data.frame(year = xpred)))
+  # mod <- lm(winter ~ year, dat)
+  # winter <- as.numeric(predict(mod, newdata = data.frame(year = xpred)))
+  # 
+  # mod <- lm(spring ~ year, dat)
+  # spring <- as.numeric(predict(mod, newdata = data.frame(year = xpred)))
+  # 
+  # mod <- lm(summer ~ year, dat)
+  # summer <- as.numeric(predict(mod, newdata = data.frame(year = xpred)))
+  # 
+  # mod <- lm(autumn ~ year, dat)
+  # autumn <- as.numeric(predict(mod, newdata = data.frame(year = xpred)))
   
-  mod <- lm(spring ~ year, dat)
-  spring <- as.numeric(predict(mod, newdata = data.frame(year = xpred)))
-  
-  mod <- lm(summer ~ year, dat)
-  summer <- as.numeric(predict(mod, newdata = data.frame(year = xpred)))
-  
-  mod <- lm(autumn ~ year, dat)
-  autumn <- as.numeric(predict(mod, newdata = data.frame(year = xpred)))
-  
-  return(data.frame(year = xpred, annual, winter, spring, summer, autumn))
+  return(data.frame(year = xpred, annual))
 }
 
 fit_line_out <- clim_out %>% 
   group_by(station, prov) %>% 
   do(get_fit_line(.)) %>% 
-  ungroup()
+  ungroup() %>% 
+  mutate(annual = round(annual, 4))
 
 # write to file
 write.csv(fit_line_out, "dat_fit.csv", row.names = FALSE)
