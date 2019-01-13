@@ -3,21 +3,25 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="twitter:image" content="/static/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:creator" content="@pmbarks"/>
+
+  <meta name="author" content="Patrick Barks">
+
   <script src="https://d3js.org/d3.v4.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script> -->
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans">
+
+  <title>Trends in mean annual temperature at 338 Canadian climate stations &middot; Patrick Barks</title>
 </head>
 
 <body>
 
 <div class="div-head">
-  <!-- Trends in mean annual temperature at Canadian climate stations -->
-  Long-term trends in mean annual temperature at 339 Canadian climate stations
+  Trends in mean annual temperature at 338 Canadian climate stations
 </div>
 
 <div class="div-plot">
@@ -39,15 +43,22 @@
   <svg width="45", height="25">
     <line x1="5" y1="20" x2="40" y2="20" class="gap-line" />
   </svg>
-  <span style="font-size:90%;">dashed lines indicate one or more years with missing or incomplete temperature data</span>
+  <span class="lab-dashed">dashed lines indicate one or more years with missing or incomplete temperature data</span>
 </div>
 
 <p>
-    Data are mean annual <a
-    href="https://www.canada.ca/en/environment-climate-change/services/climate-change/science-research-data/climate-trends-variability/adjusted-homogenized-canadian-data/surface-air-temperature-access.html">homegenized
-    surface air temperatures</a> from Environment and Climate Change Canada (see
+    Data are mean annual homogenized surface air temperatures from
+    <a href="https://doi.org/10.1029/2012JD017859">Vincent et al. (2012)</a>,
+    available from <a href="https://www.canada.ca/en/environment-climate-change/services/climate-change/science-research-data/climate-trends-variability/adjusted-homogenized-canadian-data/surface-air-temperature-access.html">Environment and Climate Change Canada</a> (see
     file <i>Monthly mean of daily mean temperature</i>). Trend line based on
     least squares regression. Trend is <i>not</i> a projection of future change.
+</p>
+
+<p>
+<b>Data reference:</b> Vincent, L. A., X. L. Wang, E. J. Milewska, H. Wan, F. Yang, and V. Swail (2012)
+A second generation of homogenized Canadian monthly surface air temperature for climate trend analysis.
+Journal of Geophysical Research 117(D18110).
+<a href="https://doi.org/10.1029/2012JD017859">https://doi.org/10.1029/2012JD017859</a>
 </p>
 
 </div>
@@ -58,7 +69,7 @@
     <!-- Copyright -->
     <div>Created by
         <a href="https://github.com/patrickbarks"> Patrick Barks</a> |
-        <i class="fab fa-twitter" style="font-size:14px"></i>
+        <i class="fab fa-twitter"></i>
         <a href="https://twitter.com/pmbarks"> @pmbarks</a>
     </div>
     <!-- Copyright -->
@@ -68,10 +79,10 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 70, right: 20, bottom: 35, left: 54};
+var margin = {top: 70, right: 20, bottom: 35, left: 56};
 
 var width = parseInt(d3.select('.div-plot').style('width'), 10) - margin.left - margin.right;
-var height = width * 9 / 16 - margin.top - margin.bottom;
+var height = width * 9 / 15 - margin.top - margin.bottom;
 
 // set the ranges
 var x = d3.scaleLinear().range([0, width]);
@@ -112,7 +123,7 @@ d3.queue()
 var updateLayout = debounce(function(e) {
 
   width = parseInt(d3.select('.div-plot').style('width'), 10) - margin.left - margin.right;
-  height = width * 9 / 16 - margin.top - margin.bottom;
+  height = width * 9 / 15 - margin.top - margin.bottom;
 
   d3.select(".svg-left").attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
@@ -218,7 +229,6 @@ function analyze(error, stn_data, clim_data, fit_data) {
       .ease(d3.easeCubic)
       .style("opacity", 1);
 
-
   var trend_val = stn_dat.filter(function(d) {return d.station == city;})[0].trend_annual;
   document.getElementById("trend-val").innerHTML = d3.format("+.2f")(trend_val);
 
@@ -227,14 +237,6 @@ function analyze(error, stn_data, clim_data, fit_data) {
       .datum(fit_data)
       .attr("class", "fit-line")
       .attr("d", valueline);
-};
-
-
-// move selection to front
-d3.selection.prototype.moveToFront = function() {
-   return this.each(function() {
-     this.parentNode.appendChild(this);
-   });
 };
 
 
