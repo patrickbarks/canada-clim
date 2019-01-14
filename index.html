@@ -68,7 +68,7 @@ Journal of Geophysical Research 117(D18110).
 <footer class="foot">
     <!-- Copyright -->
     <div>Created by
-        <a href="https://github.com/patrickbarks"> Patrick Barks</a> |
+        <a href="https://www.pmbarks.com"> Patrick Barks</a> |
         <i class="fab fa-twitter"></i>
         <a href="https://twitter.com/pmbarks"> @pmbarks</a>
     </div>
@@ -148,10 +148,10 @@ var prov_l = {
   "MANITOBA": "MB",
   "ONTARIO": "ON",
   "QUEBEC": "QC",
-  "NEWFOUNDLAND": "NL",
   "NEW BRUNSWICK": "NB",
   "NOVA SCOTIA": "NS",
   "PRINCE EDWARD ISLAND": "PE",
+  "NEWFOUNDLAND": "NL",
   "YUKON": "YT",
   "NORTHWEST TERRITORIES": "NT",
   "NUNAVUT": "NU"
@@ -193,9 +193,9 @@ function analyze(error, stn_data, clim_data, fit_data) {
     .attr("class", "axis axis--x")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
-        .ticks(20)
+        .tickValues([1880, 1900, 1920, 1940, 1960, 1980, 2000, 2017])
         .tickSize(-height)
-        .tickPadding(7)
+        .tickPadding(8)
         .tickFormat(d3.format("d")));
 
   // add the y-axis
@@ -285,9 +285,9 @@ function plot_update() {
      .attr("transform", "translate(0," + height + ")")
       .transition()
       .call(d3.axisBottom(x)
-          .ticks(20)
+          .tickValues([1880, 1900, 1920, 1940, 1960, 1980, 2000, 2017])
           .tickSize(-height)
-          .tickPadding(7)
+          .tickPadding(8)
           .tickFormat(d3.format("d")));
 
   svg.select(".line")

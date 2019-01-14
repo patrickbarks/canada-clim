@@ -10,36 +10,23 @@ body {
   font-size: 15px;
 }
 
+.axis--x .domain,
 .axis--y .domain,
-.axis .tick:nth-child(2n - 1) text {
+.axis--y .tick:nth-child(2n - 1) text {
   display: none;
 }
 
-.axis--y-r .domain,
-.axis .tick:nth-child(2n - 1) text {
-  display: none;
+.axis--x .tick:last-child line {
+  stroke-dasharray: 4;
 }
 
-.axis--x .domain {
+.axis--y .tick:nth-child(2n - 1) line {
   stroke: none;
 }
 
-.axis--x .tick line {
+.axis .tick line {
   stroke: #bfbfbf;
   opacity: 0.8;
-}
-
-.axis--y .tick line {
-  stroke: #bfbfbf;
-  opacity: 0.8;
-}
-
-.axis--y-r .tick line {
-  stroke: none;
-}
-
-.axis .tick:nth-child(2n - 1) line {
-  stroke: none;
 }
 
 path {
@@ -74,7 +61,6 @@ div {
 }
 
 .div-head {
-  /* font-family: 'Merriweather Sans', sans-serif; */
   font: 500 23px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: auto;
   max-width: 750px;
@@ -113,6 +99,7 @@ div {
 
 .div-trend {
   font-size: 17px;
+  color: #505050;
   position: absolute;
   top: 35px;
   right: 20px;
@@ -120,7 +107,8 @@ div {
 }
 
 #trend-val {
-  font-weight: bold;
+  font-weight: 800;
+  color: #202020;
 }
 
 .lab-dashed {

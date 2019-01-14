@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 ### preliminaries
 library(tidyverse)
 library(lubridate)
@@ -107,7 +101,7 @@ write.csv(stn_dat_out, "dat_station.csv", row.names = FALSE)
 ### get trend line
 get_fit_line <- function(dat) {
   mod <- lm(annual ~ year, dat)
-  xpred <- range(dat$year[!is.na(dat$annual)]) + c(-2, 2)
+  xpred <- range(dat$year[!is.na(dat$annual)]) + c(-1, 1)
   annual <- as.numeric(predict(mod, newdata = data.frame(year = xpred)))
   
   # mod <- lm(winter ~ year, dat)
