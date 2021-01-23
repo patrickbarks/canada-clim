@@ -10,13 +10,13 @@
   <meta name="twitter:creator" content="@pmbarks"/>
   <meta name="twitter:creator" content="@pmbarks"/>
   <meta name="twitter:image" content="https://www.pmbarks.com/img/app.png"/>
-  <meta name="twitter:title" content="Trends in mean annual temperature at 338 Canadian climate stations"/>
-  <meta name="twitter:description" content="An app to visualize long-term temperature trends at 338 Canadian climate stations"/>
+  <meta name="twitter:title" content="Trends in mean annual temperature at 729 Canadian climate stations"/>
+  <meta name="twitter:description" content="An app to visualize long-term temperature trends at 729 Canadian climate stations"/>
 
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2019-01-11">
-  <meta property="og:title" content="Trends in mean annual temperature at 338 Canadian climate stations">
-  <meta property="og:description" content="An app to visualize long-term temperature trends at 338 Canadian climate stations">
+  <meta property="og:title" content="Trends in mean annual temperature at 729 Canadian climate stations">
+  <meta property="og:description" content="An app to visualize long-term temperature trends at 729 Canadian climate stations">
   <meta property="og:url" content="https://patrickbarks.github.io/canada-clim/">
   <meta property="og:site_name" content="Patrick Barks">
   <meta property="og:image" content="https://www.pmbarks.com/img/app.png">
@@ -34,13 +34,13 @@
   <link rel="shortcut icon" href="favicon.ico">
 
 
-  <title>Trends in mean annual temperature at 338 Canadian climate stations &middot; Patrick Barks</title>
+  <title>Trends in mean annual temperature at 729 Canadian climate stations &middot; Patrick Barks</title>
 </head>
 
 <body>
 
 <div class="div-head">
-  Trends in mean annual temperature at 338 Canadian climate stations
+  Trends in mean annual temperature at 729 Canadian climate stations
 </div>
 
 <div class="div-plot">
@@ -67,7 +67,7 @@
 
 <p>
 Data are mean annual homogenized surface air temperatures from <a
-href="https://doi.org/10.1029/2012JD017859">Vincent et al. (2012)</a>, available
+href="https://doi.org/10.1080/07055900.2020.1765728">Vincent et al. (2020)</a>, available
 from <a
 href="https://www.canada.ca/en/environment-climate-change/services/climate-change/science-research-data/climate-trends-variability/adjusted-homogenized-canadian-data/surface-air-temperature-access.html">
 Environment and Climate Change Canada</a> (see file <i>Monthly mean of daily
@@ -78,12 +78,12 @@ github.com/patrickbarks/canada-clim</a>.
 </p>
 
 <p>
-<b>Data reference:</b> Vincent, L. A., X. L. Wang, E. J. Milewska, H. Wan, F.
-Yang, and V. Swail (2012) A second generation of homogenized Canadian monthly
-surface air temperature for climate trend analysis. Journal of Geophysical
-Research 117(D18110). <a
-href="https://doi.org/10.1029/2012JD017859">doi.org/10.1029/2012JD017859</a>
+<b>Data reference:</b> Vincent, L. A., Hartwell, M. M., and Wang, X. L. (2020) A
+third generation of homogenized temperature for trend analysis and monitoring
+changes in Canada’s climate. <i>Atmosphere-Ocean</i>, 58, 173-191.
+<a href="https://doi.org/10.1080/07055900.2020.1765728">doi.org/10.1080/07055900.2020.1765728</a>
 </p>
+
 
 </div>
 
@@ -138,9 +138,9 @@ var stn_dat, clim_dat, fit_dat;
 var province, prov, city;
 
 d3.queue()
-  .defer(d3.csv, "dat_station.csv", parse_csv_stn)
-  .defer(d3.csv, "dat_clim.csv", parse_csv_clim)
-  .defer(d3.csv, "dat_fit.csv", parse_csv_clim)
+  .defer(d3.csv, "dat/dat_station.csv", parse_csv_stn)
+  .defer(d3.csv, "dat/dat_clim.csv", parse_csv_clim)
+  .defer(d3.csv, "dat/dat_fit.csv", parse_csv_clim)
   .await(analyze);
 
 // update on window resize
@@ -166,19 +166,19 @@ window.addEventListener("resize", updateLayout, false);
 
 
 var prov_l = {
-  "BRITISH COLUMBIA": "BC",
-  "ALBERTA": "AB",
-  "SASKATCHEWAN": "SK",
-  "MANITOBA": "MB",
-  "ONTARIO": "ON",
-  "QUEBEC": "QC",
-  "NEW BRUNSWICK": "NB",
-  "NOVA SCOTIA": "NS",
-  "PRINCE EDWARD ISLAND": "PE",
-  "NEWFOUNDLAND": "NL",
-  "YUKON": "YT",
-  "NORTHWEST TERRITORIES": "NT",
-  "NUNAVUT": "NU"
+  "British Columbia": "BC",
+  "Alberta": "AB",
+  "Saskatchewan": "SK",
+  "Manitoba": "MB",
+  "Ontario": "ON",
+  "Quebec": "QC",
+  "New Brunswick": "NB",
+  "Nova Scotia": "NS",
+  "Prince Edward Isl.": "PE",
+  "Newfoundland": "NL",
+  "Yukon": "YT",
+  "Northwest Terr.": "NT",
+  "Nunavut": "NU"
 };
 
 function analyze(error, stn_data, clim_data, fit_data) {
@@ -194,7 +194,7 @@ function analyze(error, stn_data, clim_data, fit_data) {
     .enter().append("option")
       .text(function(d) {return d;});
 
-  province = document.getElementById("province").value = "ONTARIO";
+  province = document.getElementById("province").value = "Ontario";
   prov = prov_l[province];
 
   d3.select("#city")
@@ -204,7 +204,7 @@ function analyze(error, stn_data, clim_data, fit_data) {
       .text(function(d) {return d.station;});
 
   // filter data to city of interest
-  city = document.getElementById("city").value = "TORONTO";
+  city = document.getElementById("city").value = "Toronto";
   clim_data = clim_data.filter(function(d) {return d.station == city;});
   fit_data = fit_data.filter(function(d) {return d.station == city;});
 
@@ -217,7 +217,7 @@ function analyze(error, stn_data, clim_data, fit_data) {
     .attr("class", "axis axis--x")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
-        .tickValues([1880, 1900, 1920, 1940, 1960, 1980, 2000, 2017])
+        .tickValues([1880, 1900, 1920, 1940, 1960, 1980, 2000, 2020])
         .tickSize(-height)
         .tickPadding(8)
         .tickFormat(d3.format("d")));
@@ -270,7 +270,7 @@ function update_y_axis(data) {
   var y_max = d3.max(data, function(d) { return d.annual; });
 
   var diff = y_max - y_min;
-  var y_add = (8.5 - diff) / 2;
+  var y_add = (7.5 - diff) / 2;
 
   y_min -= y_add;
   y_max += y_add;
@@ -309,7 +309,7 @@ function plot_update() {
      .attr("transform", "translate(0," + height + ")")
       .transition()
       .call(d3.axisBottom(x)
-          .tickValues([1880, 1900, 1920, 1940, 1960, 1980, 2000, 2017])
+          .tickValues([1880, 1900, 1920, 1940, 1960, 1980, 2000, 2020])
           .tickSize(-height)
           .tickPadding(8)
           .tickFormat(d3.format("d")));

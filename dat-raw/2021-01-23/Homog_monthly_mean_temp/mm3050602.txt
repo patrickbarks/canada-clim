@@ -1,0 +1,12 @@
+3050602,BEAVER_MINES        ,ALTA, station not joined, Monthly mean of homogenized daily mean temperature                     , Deg Celcius,          Updated to December 2019
+3050602,BEAVER_MINES        ,ALTA, station non jointe, Moyenne mensuelle des temperatures quotidiennes moyennes homogeneisees , Deg Celsius, Mise a jour jusqu a decembre 2019
+ Year,     Jan, ,     Feb, ,     Mar, ,     Apr, ,     May, ,     Jun, ,     Jul, ,     Aug, ,     Sep, ,     Oct, ,     Nov, ,     Dec, ,  Annual, ,  Winter, ,  Spring, ,  Summer, ,  Autumn
+Annee,    Janv, ,     Fev, ,    Mars, ,     Avr, ,     Mai, ,    Juin, ,    Juil, ,    Aout, ,    Sept, ,     Oct, ,     Nov, ,     Dec, ,  Annuel, ,   Hiver, ,Printemp, ,     Ete, , Automne
+ 2012, -9999.9,M, -9999.9,M,     0.2, ,     5.4, ,     8.1, ,    12.4, ,    16.8, ,    15.9, ,    12.9,E,     2.6,E,    -0.1,E,    -6.7, , -9999.9,M, -9999.9,M,     4.6, ,    15.0, ,     5.1,E
+ 2013,    -2.8,E,    -0.7, ,    -2.0, ,     1.8,E,     9.9, ,    12.9,E,    15.7, ,    16.3, ,    12.7, ,     4.6,E,    -1.6, ,    -6.8,E,     5.0,E,    -3.4,E,     3.2,E,    15.0,E,     5.2,E
+ 2014,    -2.8, ,   -10.4, ,    -6.0, ,     4.1, ,     8.6, ,    11.5, ,    17.6, ,    15.8, ,    10.9,E,     8.6, ,    -3.1, ,    -2.0,E,     4.4,E,    -6.7,E,     2.2, ,    15.0, ,     5.5,E
+ 2015,    -2.1, ,    -2.3,E,     3.6,E,     4.7,E,     7.9,E,    14.7,E, -9999.9,M, -9999.9,M,    10.6, ,     7.9, ,    -0.6,E, -9999.9,M, -9999.9,M,    -2.1,E,     5.4,E, -9999.9,M,     6.0,E
+ 2016, -9999.9,M, -9999.9,M,     2.9, ,     7.7, ,     9.1, ,    13.7, ,    15.9, ,    15.2, ,    10.8, ,     4.8, ,     3.5, ,   -10.4, , -9999.9,M, -9999.9,M,     6.6, ,    14.9, ,     6.4, 
+ 2017,    -7.7, ,    -6.8, ,    -1.6, ,     4.3, ,    10.4, ,    13.7, ,    17.8, ,    16.2, ,    11.5, ,     5.2, ,    -1.1, ,    -7.2, ,     4.6, ,    -8.3, ,     4.4, ,    15.9, ,     5.2, 
+ 2018,    -2.6, ,   -11.1,E,    -2.7, ,     0.9, ,    12.3, ,    13.0,E,    16.0, ,    15.8, ,     7.5, ,     3.9, ,     0.2, ,    -2.1, ,     4.3,E,    -7.0,E,     3.5, ,    14.9,E,     3.9, 
+ 2019,    -1.8, ,   -18.2, ,    -3.5, ,     4.6, ,     8.1, ,    12.6, ,    15.0, ,    15.4, ,     9.9, ,     2.2, ,    -1.6, ,    -1.4, ,     3.4, ,    -7.4, ,     3.1, ,    14.3, ,     3.5, 

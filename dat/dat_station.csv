@@ -1,0 +1,730 @@
+prov,station,trend_annual
+BC,Abbotsford A,0.27574
+BC,Agassiz CDA,0.10415
+BC,Agassiz RCS,0.07704
+BC,Alberni,0.18193
+BC,Armstrong,0.13598
+BC,Atlin,0.15668
+BC,Baldonnel,-0.00394
+BC,Barkerville,0.18408
+BC,Beaverdell,-0.03346
+BC,Bella Coola,0.16973
+BC,Big Creek,-0.07303
+BC,Blue River,0.25078
+BC,Britannia Beach Furr,0.13315
+BC,Burns Lake,0.25894
+BC,Cape Scott,0.06443
+BC,Cape St James,0.2537
+BC,Cariboo Lodge,0.21714
+BC,Castlegar A,0.21715
+BC,Chatham Point,0.16929
+BC,Chilliwack,0.14336
+BC,Comox,0.15982
+BC,Cortes Island,0.3071
+BC,Cowichan Bay Cherry,-0.05191
+BC,Cranbrook,0.14739
+BC,Creston,0.08206
+BC,Cumberland,-0.13334
+BC,Darfield,0.17172
+BC,Dawson Creek,0.25204
+BC,Dease Lake,0.17967
+BC,Dryad Point,0.25086
+BC,Duncan,0.26552
+BC,Estevan Point,0.09172
+BC,Fauquier,0.13152
+BC,Fernie,0.12723
+BC,Fort Nelson,0.2703
+BC,Fort St James,0.23208
+BC,Fort St John,0.19075
+BC,Germansen,0.30536
+BC,Glacier,0.08696
+BC,Golden,0.19491
+BC,Grand Forks,0.15732
+BC,Greenwood,0.12873
+BC,Hope,0.12963
+BC,Houston,0.1735
+BC,Ivory Island,0.16821
+BC,James Island,-0.03654
+BC,Joe Rich Creek,0.24878
+BC,Kamloops,0.15111
+BC,Kaslo,0.15529
+BC,Kelowna,0.26167
+BC,Kemano,0.21117
+BC,Keremeos,0.05165
+BC,Kimberley,0.21186
+BC,Kitimat,0.33013
+BC,Kitimat Townsite,0.21535
+BC,Laidlaw,0.28125
+BC,Langara,0.08266
+BC,Lytton,0.14793
+BC,Mackenzie,0.40243
+BC,Masset A,0.03794
+BC,McBride,0.13431
+BC,McCulloch,0.06072
+BC,McInnes Island,0.1728
+BC,Merritt,0.38296
+BC,Mica Dam,0.33577
+BC,Muncho Lake A,0.54647
+BC,Nakusp,0.33758
+BC,Nanaimo A,0.18691
+BC,Nanaimo Departure Ba,0.03923
+BC,Nass Camp,0.27294
+BC,Nelson,0.15196
+BC,New Denver,0.32136
+BC,New Hazelton,-0.00243
+BC,New Westminster,0.08356
+BC,Ocean Falls,-0.12078
+BC,Okanagan Centre,0.17903
+BC,Oliver,0.25532
+BC,Oliver Stp,0.1583
+BC,Ootsa Lake Skins Lak,0.13505
+BC,Osoyoos,0.0407
+BC,Pachena Point,0.11149
+BC,Pemberton Airport CS,0.17091
+BC,Penticton,0.11444
+BC,Pitt Polder,0.20281
+BC,Port Alice,0.07021
+BC,Port Hardy,0.15639
+BC,Powell River,0.0719
+BC,Powell River A,0.14081
+BC,Prince George,0.17291
+BC,Prince Rupert,0.14064
+BC,Princeton,0.13108
+BC,Quatsino,0.10057
+BC,Quesnel,0.14824
+BC,Quinsam River,0.20627
+BC,Revelstoke,0.11656999999999999
+BC,Saanichton CDA,0.09448
+BC,Salmon Arm,0.02646
+BC,Saltspring,0.18391
+BC,Sandspit,0.21359
+BC,Saturna Capmon,0.10474
+BC,Shawnigan Lake,0.12433
+BC,Smithers,0.16797
+BC,South Slocan,-0.02843
+BC,Squamish,0.14739
+BC,Stave Falls,0.03277
+BC,Stewart,0.11029
+BC,Summerland,0.10607
+BC,Tatlayoko Lake,-0.00343
+BC,Terrace,0.12569
+BC,Tofino A,0.17255
+BC,Ucluelet Kennedy Cam,0.08757
+BC,Vancouver,0.17943
+BC,Vancouver Harbour CS,0.17197
+BC,Vavenby,0.09738
+BC,Vernon,0.13713
+BC,Vernon Bella Vista,0.15375
+BC,Victoria,0.09387
+BC,Victoria Gonzales CS,-0.03536
+BC,Victoria University,-0.28083
+BC,Warfield,0.03801
+BC,Wasa,0.28739
+BC,Westwold,0.08576
+BC,White Rock Campbell,0.1711
+BC,Williams Lake,0.13883
+BC,Yoho Park,0.35277
+YT,Burwash,0.43971
+YT,Carmacks,0.5903
+YT,Dawson,0.18969
+YT,Faro (Aut),0.34089
+YT,Haines Junction,0.33017
+YT,Komakuk Beach,0.26609
+YT,Mayo,0.30078
+YT,Old Crow,0.59462
+YT,Pelly Ranch,0.61588
+YT,Shingle Point,0.51192
+YT,Teslin,0.2495
+YT,Watson Lake,0.18822
+YT,Whitehorse,0.44365
+YT,Whitehorse A,0.23187
+NT,Cape Parry,0.36948
+NT,Deline CS,0.7548
+NT,Fort Good Hope,0.49159
+NT,Fort Good Hope 2,-0.07388
+NT,Fort Liard,0.39648
+NT,Fort McPherson,0.20821
+NT,Fort Providence,0.43033
+NT,Fort Reliance,0.34416
+NT,Fort Resolution,0.21055
+NT,Fort Simpson,0.29772
+NT,Fort Smith,0.39905
+NT,Hay River,0.30037
+NT,Inuvik,0.71397
+NT,Mould Bay,0.38541
+NT,Norman Wells,0.36825
+NT,Paulatuk,0.41252
+NT,Sachs Harbour,0.5762
+NT,Tuktoyaktuk,0.52753
+NT,Tulita A,0.22003
+NT,Wrigley A,0.33247
+NT,Yellowknife,0.34078
+NT,Yellowknife Hydro,0.20858
+NT,Yohin,0.25354
+NU,Alert,0.22717
+NU,Arctic Bay,-0.03092
+NU,Baker Lake,0.32139
+NU,Brevoort Island,0.21141
+NU,Cambridge Bay,0.35406
+NU,Cape Dorset,0.28775
+NU,Cape Dyer,0.15498
+NU,Cape Hooper,0.29103
+NU,Chesterfield,0.16276
+NU,Clyde,0.26881
+NU,Coral Harbour,0.24394
+NU,Dewar Lakes,0.22952
+NU,Ennadai Lake,0.32035
+NU,Eureka,0.30722
+NU,Fox Five,0.23771
+NU,Gjoa Haven Climate,0.76867
+NU,Hall Beach,0.37038
+NU,Iqaluit,0.16514
+NU,Kugluktuk,0.28763
+NU,Longstaff Bluff,0.29794
+NU,Lupin,0.47221
+NU,Kugaaruk Climate,0.49594
+NU,Pond Inlet,0.14514
+NU,Rankin Inlet A,0.61538
+NU,Resolute,0.33996
+NU,Resolution Island,0.01107
+NU,Shepherd Bay,0.26062
+NU,Taloyoak A,0.75038
+AB,Andrew,-0.07151
+AB,Athabasca,0.15931
+AB,Banff,0.15891
+AB,Beaverlodge,0.08296
+AB,Bow Valley,0.14871
+AB,Brooks,0.10177
+AB,Brooks AHRC,-0.13511
+AB,Brownfield,0.33961
+AB,Caldwell,0.17795
+AB,Calgary,0.13035
+AB,Calmar,0.19557
+AB,Campsie,0.12419
+AB,Camrose,0.34994
+AB,Cardston,0.16991
+AB,Carway,0.09977
+AB,Cleardale,0.51178
+AB,Cold Lake,0.30252
+AB,Coronation,0.36282
+AB,Edmonton,0.12129
+AB,Edmonton Blatchford,0.01087
+AB,Edmonton Namao A,0.30377
+AB,Edson A,0.10634
+AB,Elk Island Nat Park,0.34291
+AB,Elk Point,0.20955
+AB,Empress,0.2484
+AB,Entrance,0.02798
+AB,Fairview,0.29299
+AB,Foremost,0.30376
+AB,Fort Assiniboine,0.20773
+AB,Fort Chipewyan,0.16014
+AB,Fort Macleod,0.23425
+AB,Fort McMurray,0.31092
+AB,Fort Saskatchewan,0.26954
+AB,Fort Vermilion,0.26845
+AB,Gleichen,0.12284
+AB,Grande Prairie,0.24964
+AB,High Level,0.33578
+AB,High Prairie,0.06505
+AB,High River,0.0963
+AB,Hillsdown,0.09185
+AB,Hughenden,5.2e-4
+AB,Jasper,0.17146
+AB,Jenner,0.22828
+AB,Kananaskis,0.16357
+AB,Keg River,0.13741
+AB,Lac La Biche,0.21559
+AB,Lacombe,0.17105
+AB,Lake Louise,0.03119
+AB,Lethbridge,0.155
+AB,Lethbridge A,0.18379
+AB,Masinasin,-0.31494
+AB,Medicine Hat,0.17457
+AB,Nordegg,0.25232
+AB,Onefour CDA,0.13667
+AB,Olds,0.13109
+AB,Peace River,0.09131
+AB,Pekisko,0.0833
+AB,Pincher Creek,0.1315
+AB,Ranfurly,0.25144
+AB,Red Deer,0.24214
+AB,Red Deer A,0.15045
+AB,Rocky Mtn House,0.10539
+AB,Schuler,-0.23079
+AB,Simonette,0.02007
+AB,Sion,0.05008
+AB,Slave Lake,0.12282
+AB,Stettler North,0.1785
+AB,Suffield A,0.2673
+AB,Taber,0.21806
+AB,Three Hills,0.10383
+AB,Vauxhall,0.16379
+AB,Vegreville,0.31894
+AB,Viking,0.1406
+AB,Wastina Hemaruka,0.02613
+AB,Waterton Park Gate,0.16706
+AB,Wetaskiwin,0.12492
+AB,Whitecourt,0.44261
+SK,Abbey,0.29871
+SK,Aneroid,0.12978
+SK,Assiniboia,0.27744
+SK,Beechy,0.06042
+SK,Biggar,0.07045
+SK,Broadview,0.15767
+SK,Buffalo Narrows,0.39124
+SK,Carlyle,0.24685000000000001
+SK,Caron,0.07748
+SK,Ceylon,0.52771
+SK,Chaplin,0.24759
+SK,Coderre,0.41416
+SK,Collins Bay,0.29178
+SK,Coronach,0.17382
+SK,Cote,0.08477
+SK,Cupar,0.21397
+SK,Cypress Hills,-0.03756
+SK,Davidson,-0.07873
+SK,Dundurn,0.06019
+SK,Eastleigh,0.48084
+SK,Elbow,0.27286
+SK,Estevan,0.23791
+SK,Fort Qu'Appelle,0.02475
+SK,Gravelbourg,0.04313
+SK,Hudson Bay,0.2086
+SK,Indian Head,0.18462
+SK,Island Falls,0.1736
+SK,Kelliher,0.17984
+SK,Key Lake,0.12352
+SK,Kindersley,0.16877
+SK,Kipling,0.21198
+SK,Klintonel,0.05819
+SK,La Ronge,0.24938
+SK,Last Mountain CS,-0.07986
+SK,Leader,0.06852
+SK,Loon Lake,0.24068
+SK,Lumsden,0.06077
+SK,Mankota,0.18454
+SK,Maple Creek,0.09622
+SK,Meadow Lake,0.19201
+SK,Melfort,0.1143
+SK,Midale,0.12754
+SK,Moose Jaw,0.08796
+SK,Moosomin,0.18833
+SK,Muenster,0.17676
+SK,Nashlyn,-0.11822
+SK,Nipawin,0.08556
+SK,Nokomis,0.14768
+SK,Northbattleford,0.10677
+SK,Outlook,0.19342
+SK,Paswegin,0.48859
+SK,Pelly,0.4376
+SK,Pilger,0.11373
+SK,Poplar River,0.23477
+SK,Prince Albert,0.1715
+SK,Qu'Appelle,0.13891
+SK,Regina,0.17618
+SK,Rockglen (Aut),0.20506
+SK,Rosetown,0.17374
+SK,Saskatoon,0.17991
+SK,Scott,0.08354
+SK,Semans,0.20504
+SK,Shaunavon,0.12066
+SK,Stony Rapids,0.22989
+SK,Swift Current,0.13017
+SK,Swift Current CDA,0.16402
+SK,Tugaske,0.19461
+SK,Uranium City,0.16664
+SK,Val Marie,0.17265
+SK,Waseca,0.18424
+SK,Waskesiu Lake,0.41286
+SK,Watrous,0.25903
+SK,Weyburn,0.15144
+SK,Whitesand-Southend,0.21145
+SK,Whitewood,0.16524
+SK,Wynyard,0.19834
+SK,Yellow Grass,0.1327
+SK,Yorkton,0.17206
+MB,Altona,0.50712
+MB,Arborg,0.39736
+MB,Berens River,0.06014
+MB,Birtle,0.10052
+MB,Brandon,0.11226
+MB,Brochet,0.3894
+MB,Carberry,0.12478
+MB,Carman,0.19182
+MB,Churchill,0.18288
+MB,Cross Lake Jenpeg,0.23645
+MB,Cypress River,0.30831
+MB,Dauphin,0.17216
+MB,Deerwood RCS,0.3797
+MB,Emerson,0.16999
+MB,Fisher Branch,0.43504
+MB,Flin Flon,0.31274
+MB,Gilbert Plains,0.21269
+MB,Gillam,0.16813
+MB,Gimli,0.1482
+MB,Grand Rapids,0.16113
+MB,Great Falls,0.11776
+MB,Gretna (Aut),0.08826
+MB,Hamiota,0.1088
+MB,Indian Bay,0.12179
+MB,Island Lake A,0.36047
+MB,Lynn Lake,0.15736
+MB,McCreary,0.23138
+MB,Melita,0.29496
+MB,Minnedosa,0.19257
+MB,Morden Exp Farm,0.11161
+MB,Morris,-0.01489
+MB,Ninette,0.08285
+MB,Norway House,0.15199
+MB,Pilot Mound,0.09704
+MB,Pinawa,0.2632
+MB,Portage La Prairie,0.14119
+MB,Portage Southport,0.2052
+MB,Roblin,0.21802
+MB,Russell,0.21093
+MB,Shoal Lake CS,0.158
+MB,Sprague,0.26889
+MB,Swan River,0.16608
+MB,The Pas,0.08731
+MB,Thompson,0.2269
+MB,Virden,0.27958
+MB,Wasagaming,0.25629
+MB,Winnipeg,0.15908
+ON,Amherstburg,0.27474
+ON,Armstrong,0.17708
+ON,Atikokan,0.10208
+ON,Bancroft,0.12088
+ON,Beatrice,0.05657
+ON,Belleville,0.15497
+ON,Big Trout Lake,0.2929
+ON,Biscotasing,-0.02692
+ON,Brantford,0.11212
+ON,Brockville,0.18046
+ON,Brucefield,0.13395
+ON,Burlington,0.22852
+ON,Cameron Falls,0.04682
+ON,Chapleau,0.19578
+ON,Chatham,0.15762
+ON,Chatsworth,0.32073
+ON,Cochrane,0.10613
+ON,Collingwood,0.06676
+ON,Coniston,-0.009
+ON,Cornwall,0.28858
+ON,Crystal Falls,-0.0382
+ON,Delhi,0.03931
+ON,Dryden,0.18815
+ON,Ear Falls,0.22789
+ON,Earlton,0.14358
+ON,Egbert CS,0.024
+ON,Elora RCS,0.27367
+ON,Fergus Shand Dam,0.26134
+ON,Foldens,0.29662
+ON,Fort Frances,0.18986
+ON,Geraldton,0.30223
+ON,Glen Allan,0.31792
+ON,Goderich,0.14335
+ON,Gore Bay,0.10352
+ON,Grimsby,0.08069
+ON,Guelph,0.01408
+ON,Haliburton,0.15966
+ON,Hamilton,0.17388
+ON,Harrow,0.09371
+ON,Hornepayne,0.01776
+ON,Ignace,0.00463
+ON,Iroquois Falls,0.04415
+ON,Kakabeka Falls,0.12763
+ON,Kapuskasing,0.19933
+ON,Kemptville,0.04603
+ON,Kenora,0.14924
+ON,Kingston,0.10963
+ON,Kirkland,0.22153
+ON,Kitchener,0.04111
+ON,Lansdowne House,0.23742
+ON,Leamington,0.17536
+ON,London,0.16681000000000001
+ON,Lucknow,0.02253
+ON,Madawaska,0.16881
+ON,Millgrove,0.23192
+ON,Minden,0.36816
+ON,Mine Centre,0.17879
+ON,Montreal River,0.10285
+ON,Moosonee,0.01872
+ON,Morrisburg,0.15853
+ON,Mount Forest,0.13951
+ON,Muskoka,0.11972
+ON,New Glasgow,0.23914
+ON,Niagara Falls,-0.01203
+ON,North Bay,0.18008
+ON,Orangeville,0.25738
+ON,Orillia,0.11979
+ON,Orono,0.17106
+ON,Ottawa,0.14692
+ON,Owen Sound,0.09466
+ON,Parry Sound,0.21351
+ON,Pelee Island,0.15834
+ON,Pembroke Climate,0.07178
+ON,Petawawa,0.177
+ON,Peterborough,0.08498
+ON,Pickle Lake,0.16643
+ON,Port Dover,0.0952
+ON,Port Stanley,0.05275
+ON,Pukaskwa,0.219
+ON,Rawson Lake,0.42725
+ON,Red Lake,0.47468
+ON,Ridgetown,0.00994
+ON,Sarnia,0.26233
+ON,Sault Ste Marie,0.1627
+ON,Schreiber,-0.04661
+ON,Simcoe,0.06154
+ON,Sioux Lookout,0.24552
+ON,Smoky Falls,0.20275
+ON,Southampton,0.14592
+ON,St Catharines,0.17933
+ON,St Thomas,0.10793
+ON,Stratford,0.02992
+ON,Sudbury,0.2213
+ON,Thunder Bay,0.15117
+ON,Timmins,0.17944
+ON,Tobermory,0.13413
+ON,Toronto,0.20821
+ON,Toronto Buttonville,0.55385
+ON,Toronto Ellesmere,0.02676
+ON,Toronto Intl A,0.24739
+ON,Toronto Island City,0.21747
+ON,Trenton,0.21528
+ON,Turbine,0.11567
+ON,Uxbridge,0.11997
+ON,Vineland,0.10223
+ON,Walkerton,-0.03818
+ON,Wallaceburg,0.04156
+ON,Wawa,0.21427
+ON,Welland,0.15097
+ON,White River,0.01578
+ON,Wiarton,0.19687
+ON,Wilder Lake,0.20023
+ON,Windsor,0.18124
+ON,Woodbridge,0.13773
+ON,Woodstock,0.11417
+QC,Albanel,0.03214
+QC,Amos Lacberry,0.0892
+QC,Amqui,0.30785
+QC,Angers,0.4323
+QC,Anticosti Sw Point,0.15796
+QC,Armagh,0.10484
+QC,Arundel,0.40367
+QC,Bagotville,0.13006
+QC,Baie Comeau,0.16283
+QC,Barrage Gouin,0.06466
+QC,Beauceville,0.20607
+QC,Beausejour,0.41972
+QC,Belleterre,-0.1018
+QC,Berthierville,0.20958
+QC,Bic,0.15171
+QC,Bonnard,0.33386
+QC,Brome,0.27014
+QC,Bromptonville,0.17994
+QC,Cap Chat,0.15061
+QC,Cap Madeleine,0.10481
+QC,Causapscal,0.1293
+QC,Chapais,0.32671
+QC,Charteris,0.4574
+QC,Chelsea,0.1508
+QC,Chibougamau,0.16246
+QC,Coaticook,0.34028
+QC,Disraeli,0.0918
+QC,Donnacona,0.12836
+QC,Drummondville,0.26306
+QC,Farnham,0.12552
+QC,Fleury,0.38129
+QC,Foret Montmorency RC,0.27168
+QC,Fortierville,0.33952
+QC,Gaspe,0.10001
+QC,Grandes Bergeronnes,0.02301
+QC,Granby,0.18357
+QC,Havre St Pierre,0.21596
+QC,Hemmingford Four,0.28808
+QC,Huberdeau,-0.02533
+QC,Iles Madeleine,0.19285
+QC,Inukjuak,0.01877
+QC,Joliette,0.22238
+QC,Kuujjuaq,0.12482
+QC,Kuujjuarapik,0.14836
+QC,La Grande Iv,0.51053
+QC,La Grande Riviere,0.16007
+QC,La Macaza,0.31911
+QC,La Malbaie,0.10999
+QC,La Pocatiere,0.15451
+QC,La Sarre,0.36275
+QC,La Tuque,0.01272
+QC,Labrieville,-0.06798
+QC,Lac Bouchette,0.17704
+QC,Lac Humqui,0.33027
+QC,Lac Ste Croix,0.28313
+QC,Lachute,0.42056
+QC,Lambton,0.15972
+QC,Lauzon,0.28273
+QC,Lennoxville,0.1387
+QC,Les Cedres,0.15657
+QC,Lourdes De Blanc Sa,0.42754
+QC,Luskville,0.43351
+QC,Lytton,0.02297
+QC,Macdonald Coll,0.08447
+QC,Magog,0.21468
+QC,Maniwaki,0.10563
+QC,Matagami,0.37616
+QC,Milan,0.18054
+QC,Mont Joli,0.17203
+QC,Mont Laurier,0.10952
+QC,Montreal Tavish,0.23081
+QC,Montreal Trudeau In,0.23795
+QC,Natashquan,0.18246
+QC,New Carlisle,0.22421
+QC,Nicolet,0.07136
+QC,Nominingue,0.24592
+QC,Normandin,0.15752
+QC,Not Dame Du Laus,8.6e-4
+QC,Oka,0.23558
+QC,Ormstown,0.26825
+QC,Parent,0.14779
+QC,Pointe Au Chene,0.13244
+QC,Port Daniel,-0.03961
+QC,Portage Des Roches,-0.11049
+QC,Price,0.05896
+QC,Quaqtaq,0.00443
+QC,Quebec,0.18366
+QC,Richmond,0.42247
+QC,Rimouski,0.17529
+QC,Riviere Des Prairie,0.31013
+QC,Riviere Verte Ou,0.27308
+QC,Roberval,0.15339
+QC,Saint Michel,0.41963
+QC,Sawyerville Nord,0.35346
+QC,Schefferville,0.15318
+QC,Scott,0.22511
+QC,Sept Iles,0.16592
+QC,Shawinigan,0.1724
+QC,Sherbrooke,0.1105
+QC,Shipshaw,0.25069
+QC,Sorel,0.28807
+QC,St Alban,0.18963
+QC,St Ambroise,0.21749
+QC,St Anicet,0.38763
+QC,St Camille,0.21861
+QC,St Charles De Mande,0.42898
+QC,St Come,0.10488
+QC,St Come De Liniere,0.27382
+QC,St Ephrem,0.15413
+QC,St Fereol,0.2563
+QC,St Flavien,0.33533
+QC,St Guillaume,0.39383
+QC,St Hippolyte,0.25249
+QC,St Hubert Mont,0.22627
+QC,St Hyacinthe,0.15711
+QC,St Jerome,0.18692
+QC,St Ludger,0.36284
+QC,St Malo d'Auckl,-0.03708
+QC,St Michel Des Sain,0.26935
+QC,St Narcisse,0.43849
+QC,St Pamphile,-0.03156
+QC,St Prime,0.34957
+QC,St Sebastien,0.29011
+QC,St Tite,0.03147
+QC,Ste Anne Dela Perade,0.21336
+QC,Ste Anne Du Lac,0.34906
+QC,Ste Beatrix,0.14481
+QC,Ste Germaine,0.23525
+QC,Ste Madeleine,0.60993
+QC,Sterose Degelis,0.063
+QC,Temiscamingue,0.03686
+QC,Tete Baleine,0.0571
+QC,Thetford Mines,0.3084
+QC,Trois Pistoles,0.03312
+QC,Trois Rivieres,0.20317
+QC,Val d'Or,0.15886
+QC,Valleyfield,0.15929
+QC,Ville Marie,0.01077
+QC,Wright,0.32932
+NB,Alma (Fundy Park),0.08591
+NB,Aroostook,0.11131
+NB,Bathurst,0.21297
+NB,Buctouche,0.0616
+NB,Charlo,0.28139
+NB,Doaktown,0.10939
+NB,Edmundston,0.19281
+NB,Fredericton,0.1493
+NB,Gagetown,0.22073
+NB,Grand Falls,0.11994
+NB,Harvey Station,0.05768
+NB,Kedgwick,0.10077
+NB,McAdam,0.2038
+NB,Mirachimi,0.161
+NB,Miscou Island,0.23607
+NB,Moncton,0.13685
+NB,Nepisiguit Falls,0.133
+NB,Rexton,0.14069
+NB,Sackville,0.00535
+NB,Saint John,0.12985
+NB,St George,0.13317
+NB,St Leonard,0.578
+NB,Sussex,0.16371
+NB,Woodstock,0.06392
+NS,Annapolis Royal,0.15149
+NS,Baddeck,0.22488
+NS,Cheticamp,0.39952
+NS,Collegeville,0.27137
+NS,Deming,-0.00834
+NS,Digby,0.16915
+NS,Greenwood,0.20768
+NS,Halifax,0.1749
+NS,Ingonish Beach,0.05308
+NS,Kejimkujik Park,0.19528
+NS,Kentville,0.12647
+NS,Liverpool,0.07378
+NS,Meteghan River,0.16512
+NS,Mount Uniacke,0.05158
+NS,Nappan,0.13412
+NS,Parrsboro,0.18803
+NS,Sable Island,0.11147
+NS,Salmon Hole,0.17149
+NS,Shearwater A,0.15659
+NS,Springfield,0.18298
+NS,St Margaret's Bay,0.14323
+NS,Stillwater,0.29167
+NS,Sydney,0.1254
+NS,Truro,0.13701
+NS,Upper Stewiacke,0.09293
+NS,Yarmouth,0.09488
+PE,Alliston,0.19432
+PE,Charlottetown,0.11577
+PE,St Peters,0.32196
+PE,Summerside,0.06429
+NL,Bay d'Espoir,0.21228
+NL,Bonavista,0.15075
+NL,Buchans,0.22337
+NL,Burgeo,0.27296
+NL,Cartwright,0.11315
+NL,Churchill Falls,0.397
+NL,Colinet,0.01232
+NL,Cormack,0.46453
+NL,Corner Brook,0.15788
+NL,Daniels Harbour,0.21562
+NL,Deer Lake,0.12795
+NL,Exploits Dam,0.14849
+NL,Gander,0.10156
+NL,Goose,0.11166
+NL,Grand Falls,-0.04837
+NL,Hopedale,0.12874
+NL,Mary's Harbour,0.20276
+NL,Nain,0.2908
+NL,Plum Point,0.41939
+NL,Port Auxbasques,0.12341
+NL,Rocky Harbour,0.23739
+NL,St Anthony,0.02021
+NL,St John S,0.15333
+NL,St John West,0.16554
+NL,St Lawrence,0.33404
+NL,Stephenville,0.11517
+NL,Terra Nova Nat Park,0.18125
+NL,Wabush Lake,0.31942
+NL,Wreckhouse,0.23115
